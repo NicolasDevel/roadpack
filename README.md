@@ -1,7 +1,7 @@
 # roadpack
 
 [![tests](https://github.com/NicolasDevel/roadpack/actions/workflows/tests.yml/badge.svg)](https://github.com/NicolasDevel/roadpack/actions/workflows/tests.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/NicolasDevel/roadpack/blob/main/LICENSE)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 
 **Turn-by-turn routing on a microcontroller, offline, for a whole country.**
@@ -11,9 +11,9 @@ roadpack compiles an OpenStreetMap extract into a `.gmap`: a compact binary road
 without ever loading the map. All of Colombia is 256 MB, turn restrictions included, and an ESP32-S3 finds the 963 km
 route from Bogotá to Cartagena in under 3 seconds, with a cold cache ([on the device](#on-the-device)).
 
-[Leer en español](README.es.md)
+[Leer en español](https://github.com/NicolasDevel/roadpack/blob/main/README.es.md)
 
-![All of Colombia's road graph with the Bogotá–Cartagena route, and three maneuver screens of the round display](docs/img/hero.png)
+![All of Colombia's road graph with the Bogotá–Cartagena route, and three maneuver screens of the round display](https://raw.githubusercontent.com/NicolasDevel/roadpack/main/docs/img/hero.png)
 
 ## Why
 
@@ -30,7 +30,7 @@ map such a device can route on.
   card pages, a sparse spatial grid to snap a GPS fix, and the file split into 4 MiB chunks because FAT without
   fast seek is slow on large files.
 - **Verified.** The hierarchy matches A* on 2,200 random routes across 22 regions, and the builder's output is
-  checked against the original reference implementation ([how](docs/SCALING.md)).
+  checked against the original reference implementation ([how](https://github.com/NicolasDevel/roadpack/blob/main/docs/SCALING.md)).
 
 It was built for, and runs on, an offline motorcycle navigator: a Waveshare ESP32-S3 with a 466×466 round AMOLED
 display, reading the map from a microSD card.
@@ -89,12 +89,12 @@ flowchart LR
 ```
 
 A device answers a query by running Dijkstra from both ends, only ever going up in the hierarchy, then unpacking
-the shortcuts into real edges. The format, byte by byte, and the query are in [FORMAT.md](FORMAT.md); the Python
+the shortcuts into real edges. The format, byte by byte, and the query are in [FORMAT.md](https://github.com/NicolasDevel/roadpack/blob/main/FORMAT.md); the Python
 reader in `roadpack.format` and the router in `roadpack.routing` are the reference implementation.
 
 ## Results
 
-From the [benchmarks](benchmarks/README.md): motorcycle profile, 200 random routes per region, on a 16 GB laptop.
+From the [benchmarks](https://github.com/NicolasDevel/roadpack/blob/main/benchmarks/README.md): motorcycle profile, 200 random routes per region, on a 16 GB laptop.
 
 | Region | Graph nodes | `.gmap` | Build | Median route | Nodes settled (median) | A* settles | KB read per query |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -108,7 +108,7 @@ From the [benchmarks](benchmarks/README.md): motorcycle profile, 200 random rout
 
 The benchmarks also cover Mexico City, Lima, Buenos Aires, Santiago, Washington DC, Ottawa, Toronto, New York,
 Madrid, Barcelona, Paris, Berlin, Canada, Texas, New York State and Colombia by department.
-[How large countries fit in a laptop, and the evidence that they are exact](docs/SCALING.md).
+[How large countries fit in a laptop, and the evidence that they are exact](https://github.com/NicolasDevel/roadpack/blob/main/docs/SCALING.md).
 
 ## On the device
 
@@ -149,7 +149,7 @@ What made the difference:
 - Turn restrictions with a via node or via ways are applied (in Colombia, 6,826 of 6,940 in the October 2026
   extract); time-dependent ones are not. Speeds come from `maxspeed` or a default per road class (no traffic).
 - The microcontroller side is specified in FORMAT.md, with two implementations: the Python reference here and a
-  portable C99 reader and router in [reader/](reader/README.md) (no allocation, checked against the Python one).
+  portable C99 reader and router in [reader/](https://github.com/NicolasDevel/roadpack/blob/main/reader/README.md) (no allocation, checked against the Python one).
   Maneuvers are only in Python for now.
 
 ## Project layout
@@ -163,7 +163,7 @@ What made the difference:
 | `roadpack.routing` | Reference routing: CH query, A*, turn-by-turn maneuvers |
 | `roadpack.stats`, `roadpack.preview` | Route sampling; PNG of a route and of each maneuver screen |
 | `benchmarks/` | Benchmark, validation and reference-comparison scripts, with their results |
-| `reader/` | C99 reader and router for microcontrollers ([reader/README.md](reader/README.md)) |
+| `reader/` | C99 reader and router for microcontrollers ([reader/README.md](https://github.com/NicolasDevel/roadpack/blob/main/reader/README.md)) |
 
 ```bash
 pip install -e '.[test]' && pytest
@@ -175,7 +175,7 @@ nodes.
 
 ## Licenses
 
-- This repository's code: [MIT](LICENSE).
+- This repository's code: [MIT](https://github.com/NicolasDevel/roadpack/blob/main/LICENSE).
 - Generated maps are a database derived from OpenStreetMap, © OpenStreetMap contributors, under the
   [ODbL](https://opendatacommons.org/licenses/odbl/): if you distribute them, give that attribution and share
   them under the same license.

@@ -34,5 +34,26 @@ path = "src/roadpack/__init__.py"
 [tool.hatch.build.targets.wheel]
 packages = ["src/roadpack"]
 
+# Only what is in git: local notes, editor settings and binaries stay out
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/benchmarks",
+    "/docs",
+    "/reader/*.c",
+    "/reader/*.h",
+    "/reader/Makefile",
+    "/reader/README.md",
+    "/reader/.gitignore",
+    "/reader/examples",
+    "/reader/tests",
+    "/FORMAT.md",
+    "/README.md",
+    "/README.es.md",
+    "/LICENSE",
+]
+exclude = ["/reader/main.c"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
