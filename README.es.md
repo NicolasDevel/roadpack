@@ -1,6 +1,7 @@
 # roadpack
 
 [![tests](https://github.com/NicolasDevel/roadpack/actions/workflows/tests.yml/badge.svg)](https://github.com/NicolasDevel/roadpack/actions/workflows/tests.yml)
+[![PyPI](https://img.shields.io/pypi/v/roadpack.svg)](https://pypi.org/project/roadpack/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 
@@ -38,7 +39,7 @@ redonda de 466×466 que lee el mapa de una microSD.
 ## Inicio rápido
 
 ```bash
-pip install git+https://github.com/NicolasDevel/roadpack.git
+pip install roadpack
 
 # Cualquier extracto de https://download.geofabrik.de o https://extract.bbbike.org
 roadpack build colombia-latest.osm.pbf -o out/colombia.gmap                 # el extracto completo
