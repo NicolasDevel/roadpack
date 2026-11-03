@@ -151,8 +151,9 @@ Lo que hizo la diferencia:
 - Se aplican las restricciones de giro con un nodo o con vías como `via` (en Colombia, 6.826 de 6.940 en el
   extracto de octubre de 2026); las que dependen del horario, no. Las velocidades salen de `maxspeed` o de un valor
   por defecto según el tipo de vía (sin tráfico).
-- El lado del microcontrolador está especificado en FORMAT.md e implementado aquí en Python; hay planeado un lector
-  portable en C.
+- El lado del microcontrolador está especificado en FORMAT.md, con dos implementaciones: la de referencia en Python y
+  un lector y router en C99 portable en [reader/](reader/README.md) (sin memoria dinámica, comparado con el de
+  Python). Las maniobras por ahora solo están en Python.
 
 ## Organización del proyecto
 
@@ -165,6 +166,7 @@ Lo que hizo la diferencia:
 | `roadpack.routing` | Ruteo de referencia: consulta con la CH, A*, maniobras giro a giro |
 | `roadpack.stats`, `roadpack.preview` | Muestreo de rutas; PNG de una ruta y de la pantalla de cada maniobra |
 | `benchmarks/` | Scripts de benchmarks, validación y comparación con la referencia, con sus resultados |
+| `reader/` | Lector y router en C99 para microcontroladores ([reader/README.md](reader/README.md), en inglés) |
 
 ```bash
 pip install -e '.[test]' && pytest

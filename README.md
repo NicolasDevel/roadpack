@@ -148,8 +148,9 @@ What made the difference:
 - Building needs at least about 1.5 GB of RAM, and about 9 GB for Brazil.
 - Turn restrictions with a via node or via ways are applied (in Colombia, 6,826 of 6,940 in the October 2026
   extract); time-dependent ones are not. Speeds come from `maxspeed` or a default per road class (no traffic).
-- The microcontroller side is specified in FORMAT.md and implemented in Python here; a portable C reader is
-  planned.
+- The microcontroller side is specified in FORMAT.md, with two implementations: the Python reference here and a
+  portable C99 reader and router in [reader/](reader/README.md) (no allocation, checked against the Python one).
+  Maneuvers are only in Python for now.
 
 ## Project layout
 
@@ -162,6 +163,7 @@ What made the difference:
 | `roadpack.routing` | Reference routing: CH query, A*, turn-by-turn maneuvers |
 | `roadpack.stats`, `roadpack.preview` | Route sampling; PNG of a route and of each maneuver screen |
 | `benchmarks/` | Benchmark, validation and reference-comparison scripts, with their results |
+| `reader/` | C99 reader and router for microcontrollers ([reader/README.md](reader/README.md)) |
 
 ```bash
 pip install -e '.[test]' && pytest
